@@ -15,6 +15,8 @@
 - Queue(BFS)
 """
 
+from collections import deque
+
 import sys
 input = sys.stdin.readline
 
@@ -27,9 +29,10 @@ dx = [1,0,-1,0]
 
 def bfs(y, x):
     rs = 1
-    q = [(y, x)]
+    q = deque()
+    q.append((y, x))
     while q:
-        ey, ex = q.pop()
+        ey, ex = q.popleft()
         for k in range(4):
             ny = ey + dy[k]
             nx = ex + dx[k]
